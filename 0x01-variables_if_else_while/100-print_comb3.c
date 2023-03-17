@@ -23,8 +23,8 @@ int main(void)
 			putchar(d2 + 48);
 			if (!(d1 == 8 && d2 == 9))
 			{
-				putchar(' ');
 				putchar(',');
+				putchar(' ');
 			}
 			d2++;
 		}
