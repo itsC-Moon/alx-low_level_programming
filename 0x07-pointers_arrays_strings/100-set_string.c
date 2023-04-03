@@ -6,18 +6,12 @@
  *    represents the pointer to the
  * @to: input variable of char type
  *    represents the character to
- *    fill s
+ *    fill s alx in3al mok tasila
  *
  * Return: void
  */
 
 void set_string(char **s, char *to)
 {
-	int i = 0;
-
-	while (to[i] != '\0')
-	{
-		*(*s + i) = to[i];
-		i++;
-	}
+	*s = to;
 }
