@@ -25,7 +25,7 @@ int flip_flop(char *s, int i, int j)
 	if (i > j)
 		return (1);
 	else if (s[i] == s[j])
-		flip_flop(s, i + 1, j - 1);
+		return (flip_flop(s, i + 1, j - 1));
 	return (0);
 }
 /**
