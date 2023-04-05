@@ -26,8 +26,7 @@ int flip_flop(char *s, int i, int j)
 		return (1);
 	else if (s[i] == s[j])
 		flip_flop(s, i + 1, j - 1);
-	else
-		return (0);
+	return (0);
 }
 /**
  * is_palindrome - is_palindrome
