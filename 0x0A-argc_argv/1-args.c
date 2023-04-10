@@ -14,7 +14,6 @@
 int main(int argc, char **argv)
 {
 	(void)argv;
-	int i = 0, m;
 
 	printf("%d\n", argc - 1);
 	return (0);
