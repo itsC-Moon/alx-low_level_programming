@@ -7,9 +7,10 @@
  * @s: string input pointer
  *
  * Return: 0 if there is no number
-*/
+ */
 
 int _atoi(char *s)
 {
-
+	(void)s;
+	return (0);
 }
