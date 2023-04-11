@@ -16,8 +16,12 @@ char *str_concat(char *s1, char *s2)
 	int len = 0;
 	char *str;
 
+	if (!s1 || !s2)
+		return (NULL);
+
 	while (s1[lena])
 		lena++;
+
 	while (s2[lenb])
 		lenb++;
 
