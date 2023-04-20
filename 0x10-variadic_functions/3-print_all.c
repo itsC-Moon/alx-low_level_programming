@@ -52,7 +52,7 @@ void print_all(const char *const format, ...)
 			flag = 1;
 			break;
 		case 'f':
-			printf("%f", (float)va_arg(ap, double));
+			printf("%f", va_arg(ap, double));
 			flag = 1;
 			break;
 		case 'c':
