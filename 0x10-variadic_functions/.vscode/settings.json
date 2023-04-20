@@ -1,6 +1,0 @@
-{
-    "files.associations": {
-        "*.embeddedhtml": "html",
-        "variadic_functions.h": "c"
-    }
-}
