@@ -1,5 +1,26 @@
 #include "variadic_functions.h"
 /**
+ * print_string - a function that prints string
+ *
+ * @arg: va arg
+ *
+ * Description: print string or nil;
+ *
+ * Return: nothing
+ */
+void print_string(va_list arg)
+{
+	char *str = va_arg(arg, char *);
+
+	if (str == NULL)
+	{
+		printf("(nil)");
+		return;
+	}
+	printf("%s", str);
+}
+
+/**
  * print_all - a function that prints anything
  *
  * @format: A string of character representing
@@ -15,7 +36,6 @@ void print_all(const char *const format, ...)
 {
 	va_list ap;
 	int i = 0;
-	char *str;
 	int flag = 0;
 
 	va_start(ap, format);
@@ -24,11 +44,7 @@ void print_all(const char *const format, ...)
 		switch (format[i])
 		{
 		case 's':
-			str = va_arg(ap, char *);
-			if (str)
-				printf("%s", str);
-			else
-				printf("(nil)");
+			print_string(ap);
 			flag = 1;
 			break;
 		case 'i':
@@ -53,4 +69,3 @@ void print_all(const char *const format, ...)
 	}
 	printf("\n");
 }
-#include "variadic_functions.h"
