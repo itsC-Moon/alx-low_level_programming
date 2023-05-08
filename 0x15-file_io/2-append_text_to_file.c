@@ -1,34 +1,37 @@
 #include "main.h"
 
 /**
- * append_text_to_file - Appends text at the end of a file.
- * @filename: A pointer to the name of the file.
- * @text_content: The string to add to the end of the file.
+ * append_text_to_file - a funcion that appends text at the end
+ *                      of a file
  *
- * Return: If the function fails or filename is NULL - -1.
- *         If the file does not exist the user lacks write permissions - -1.
- *         Otherwise - 1.
- */
+ * @filename: file to add data to
+ * @text_content: text content to add to file
+ *
+ * Return: 1 on success, -1 on failure
+*/
 int append_text_to_file(const char *filename, char *text_content)
 {
-	int fd_open, fd_write, len = 0;
+	int file, app_status, words = 0;
 
-	if (!filename)
+	if (filename == NULL) /*check if file is present*/
 		return (-1);
 
-	if (!text_content)
+	/*open file, with append option with write rights*/
+	file = open(filename, O_APPEND | O_WRONLY);
+	if (file == -1) /*check if file is present*/
+		return (-1);
+
+	if (text_content) /*append content to file if its not NULL*/
 	{
-		for (len = 0; text_content[len];)
-			len++;
+		while (text_content[words] != '\0') /*find number of words*/
+			words++;
+
+		/*append to file*/
+		app_status = write(file, text_content, words);
+		if (app_status == -1) /*check if append was a success*/
+			return (-1);
 	}
 
-	fd_open = open(filename, O_WRONLY | O_APPEND);
-	fd_write = write(fd_open, text_content, len);
-
-	if (fd_open == -1 || fd_write == -1)
-		return (-1);
-
-	close(fd_open);
-
+	close(file); /*close file*/
 	return (1);
 }
